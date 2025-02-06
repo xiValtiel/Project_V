@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Will you..?</title>
+  </head>
+  <body>
+    <div class="undertale-ui">
+        <!-- Enemy Name and Health Bar -->
+        <div class="enemy-bar">
+          <div>
+            <img src="28eN.gif">
+          </div>
+        </div>
+      
+        <!-- Main Text Box -->
+        <div class="text-box">
+          <p>* [Valtiel] asks.. "Will you be my Valentines?"</p>
+        </div>
+
+        <div class="info">
+          <div style="display: inline-flex; text-align: center; align-items: center; justify-content: space-between; width: 25%; padding-right: 10%;">
+            <div class="i-item">Isabella</div>
+            <div class="i-item">Lv 19</div>
+          </div>
+          <div style="display: inline-flex; text-align: center; align-items: center; justify-content: space-between; width: 25%;">
+            <div style="display: inline-flex; text-align: center; align-items: center; justify-content: space-between; width: 30%;">
+              <div class="i-item">HP</div>
+              <div class="health-bar" style="flex: 2">
+                <div class="health-fill"></div>
+              </div>
+            </div>
+            <div class="i-item">15 / 20</div>
+          </div>
+        </div>
+      
+        <!-- Options -->
+        <div class="options">
+            <div class="option" onclick="showAlert()" title="Fight"></div>
+            <div class="option" id="clickableImage" title="Act"></div>
+            <div class="option" onclick="showAlert()" title="Item"></div>
+            <div class="option" onclick="showAlert()" title="Mercy"></div>
+        </div>
+
+        <div id="alert-box" class="alert">Cannot use this right now! (Try Act)</div>
+    </div>
+    <script>
+      function link(url) {
+        window.location.href = url; // Redirect to the given URL
+      }
+
+      document.getElementById("clickableImage").addEventListener("click", function() {
+          link("answer.html"); // Change to your desired URL
+      });
+      function showAlert() {
+          let alertBox = document.getElementById("alert-box");
+          alertBox.style.display = "block";
+          
+          setTimeout(() => {
+              alertBox.classList.add("fade-out");
+          }, 2000); // Start fading after 2 seconds
+          
+          setTimeout(() => {
+              alertBox.style.display = "none";
+              alertBox.classList.remove("fade-out");
+          }, 3000); // Fully disappear after 3 seconds
+      }
+
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will you?</title>
+  <style>
+    @font-face {
+        font-family: 'Undertale';
+        src: url(DTM-Sans.otf);
+    }
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Undertale;
+    }
+
+    .battle-container {
+      border: 4px solid white;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 50vw;
+      height: 60vh;
+    }
+
+    .dialogue-box {
+      border: 4px solid white;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+      width: 100%;
+    }
+
+    .enemy {
+      margin-bottom: 20px;
+    }
+
+    .enemy img {
+      max-width: 80px;
+      height: auto;
+    }
+
+    .heart-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 50%;
+      height: 50%;
+      border: 2px solid white;
+    }
+
+    .heart {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: #FF00FF;
+      clip-path: polygon(50% 0%, 61% 16%, 74% 18%, 84% 31%, 84% 45%, 73% 57%, 50% 88%, 27% 57%, 16% 45%, 16% 31%, 26% 18%, 39% 16%);
+    }
+
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .menu button {
+      background: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      border: 2px solid white;
+      padding: 8px;
+      cursor: pointer;
+      width: 80px;
+    }
+
+    .menu button:hover {
+      background: white;
+      color: black;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 14px;
+      width: 100%;
+      font-size: 1.9rem;
+    }
+
+    .hp-bar {
+      display: flex;
+      align-items: center;
+      width: 60%;
+      position: relative;
+    }
+
+    .hp-bar .bar-bg {
+      width: 100%;
+      height: 12px;
+      background-color: red;
+      border: 1px solid white;
+      position: relative;
+    }
+
+    .hp-bar .bar-fill {
+      width: 100%;
+      height: 100%;
+      background-color: yellow;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .hp-bar span {
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+
+    .option {
+    flex: 1; /* Adjusts evenly spaced options */
+    text-align: center;
+    cursor: pointer;
+    background: black;
+    color: white;
+    transition: background 0.2s ease, background-image 0.2s ease;
+  
+    /* Set dimensions */
+    width: 100px; /* Adjust width here */
+    height: 75px; /* Adjust height here */
+  
+    /* Background settings for larger images */
+    background-size: 60%; /* Adjust image size relative to the box */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+/* Add default images for each option */
+.option:nth-child(1) {
+    background-image: url('Fight.jpg'); /* Replace with your Fight default image path */
+  }
+  
+  .option:nth-child(2) {
+    background-image: url('Act.jpg'); /* Replace with your Act default image path */
+  }
+  
+  .option:nth-child(3) {
+    background-image: url('Item.png'); /* Replace with your Item default image path */
+  }
+  
+  .option:nth-child(4) {
+    background-image: url('Mercy.jpg'); /* Replace with your Mercy default image path */
+  }
+  
+  /* Hover effects to swap images */
+  .option:nth-child(1):hover {
+    background-image: url('FightH.png'); /* Replace with your Fight hover image path */
+  }
+  
+  .option:nth-child(2):hover {
+    background-image: url('ActH.png'); /* Replace with your Act hover image path */
+  }
+  
+  .option:nth-child(3):hover {
+    background-image: url('ItemH.png'); /* Replace with your Item hover image path */
+  }
+  
+  .option:nth-child(4):hover {
+    background-image: url('MercyH.png'); /* Replace with your Mercy hover image path */
+  }
+  </style>
+</head>
+<body>
+  <div class="battle-container">
+    <div class="dialogue-box">
+      Proud that you're going to make a delicious cake~ Ahuhuhu~
+    </div>
+    <div class="enemy">
+      <img src="28eN.gif" style="height: 7rem; width: 12;" alt="Enemy Sprite">
+    </div>
+    <div class="heart-container">
+      <div class="heart"></div>
+    </div>
+    <div class="stats">
+      <span style="padding-left: 5%;">Isabella &nbsp;&nbsp;&nbsp;&nbsp; Lv 19</span>
+      <div class="hp-bar">
+        <div class="bar-bg">
+          <div class="bar-fill" style="width: 75%;"></div>
+        </div>
+        <span style="padding-right: 10%;">56 / 56</span>
+      </div>
+    </div>
+    <div class="menu">
+        <div class="option" title="Fight"></div>
+        <div class="option" title="Act"></div>
+        <div class="option" title="Item"></div>
+        <div class="option" title="Mercy"></div>
+    </div>
+  </div>
+</body>
+</html>

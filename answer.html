@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>=3=</title>
+  </head>
+  <body>
+    <div class="undertale-ui">
+        <!-- Enemy Name and Health Bar -->
+        <div class="enemy-bar">
+          <div>
+            <img src="dip.gif">
+          </div>
+        </div>
+      
+        <!-- Main Text Box -->
+        <div class="text-box">
+          <p>* Accept his vulnerability...?</p>
+          <div style="display: flex; justify-content: space-evenly; align-items: end; height: 100%;" >
+            <div class="hover-container">
+                <p class="hover-text" id="acceptOffer">
+                    <a href="reject.html" id="acceptLink">Accept</a>
+                </p>
+                <img src="heart.jpg" class="hover-image">
+            </div>
+            <div class="hover-container">
+                <p class="hover-text" id="refuseOffer">
+                    <a href="reject.html" id="refuseLink">Refuse</a>
+                </p>
+                <img src="brokenHeart.jpg" class="hover-image">
+            </div>
+          </div>
+        </div>
+
+
+        <script>
+            function sendDiscordMessage(event, message, redirectURL) {
+                event.preventDefault(); // Prevent the link from navigating away immediately
+    
+                const webhookURL = "https://discord.com/api/webhooks/1336600736532004904/FAbNz1VqEmkGEWq1jvUSeIeRMUBtPoM6A39PKDXcF2WdLs8s_dCsWIoj_S2xUlqnv2SO"; // Replace with your webhook URL
+    
+                const messageData = {
+                    content: message,
+                    username: "Her Response" // Custom bot name
+                };
+    
+                fetch(webhookURL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(messageData)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Message sent to Discord!");
+                        setTimeout(() => { window.location.href = redirectURL; }, 500); // Delay navigation
+                    } else {
+                        console.error("Failed to send message");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            }
+    
+            // Attach event listeners to <a> links
+            document.getElementById("acceptLink").addEventListener("click", function(event) {
+                sendDiscordMessage(event, "She said, YES!!!! yippeee :3✅", "accept.html");
+            });
+    
+            document.getElementById("refuseLink").addEventListener("click", function(event) {
+                sendDiscordMessage(event, "She said no... oh well... :< ❌", "reject.html");
+            });
+    
+        </script>
+
+  </body>
+</html>
